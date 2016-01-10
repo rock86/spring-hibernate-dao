@@ -21,6 +21,8 @@ public class UserServiceTest {
 	public void main() {
 		System.out.println("===run====");
 
+		User user = new User("123", 12);
+		System.out.println(user);
 		userService.listAll();
 	}
 }

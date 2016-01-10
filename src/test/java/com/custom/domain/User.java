@@ -1,10 +1,7 @@
 package com.custom.domain;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.custom.spring.hibernate.annotation.EntityDao;
@@ -17,31 +14,17 @@ import com.custom.spring.hibernate.annotation.EntityDao;
 @Entity
 @EntityDao
 @Table(name = "T_USER")
-public class User implements Serializable {
+public class User extends BaseDomain<Integer> {
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
 	private String name;
 	private int age;
 
-	
-	
-	public User(Integer id, String name, int age) {
+	public User(String name, int age) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.age = age;
-	}
-
-	@Id
-	@Column(name = "ID", unique = true)
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	@Column(name = "NAME")
@@ -64,6 +47,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
+		return "User [name=" + name + ", age=" + age + ", getId()=" + getId() + ", getVersion()=" + getVersion() + "]";
 	}
+
+	
 }

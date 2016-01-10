@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService<User, Integer> {
 	public void listAll() {
 
 		for (int i = 0; i < 5; i++) {
-			User user = new User(i, "test" + i, i * 2);
+			User user = new User("test" + i, i * 2);
 			userDao.save(user);
 		}
 
